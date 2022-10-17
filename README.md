@@ -10,7 +10,7 @@ NNCME stands for Neural Network Chemical Master Equation. It is a software packa
 
 System requirements: 
 All simulations were done using Python.
-We have used the package Pytorch.
+We have used the package Pytorch. The code requires Python >= 3.6 and PyTorch >= 1.0.
 
 Expected run time for the examples are provided in the Supplementary table of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100.
 
