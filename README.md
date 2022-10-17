@@ -1,9 +1,9 @@
 # NNCME
-A software package for quantifying information accumulation of biochemical signaling channels.
+A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://arxiv.org/abs/2210.01169)
 
-(c) 2022 Signaling Systems Lab 
+(c) 2022, Lab of Machine Learning and Complex Systems
 All rights reserved. 
-This MATLAB code package implements the quantification on the dynamical mutual information for data of time series. It used either time-inhomogeneous Markov model or hidden Markov model to learn the dynamical patterns of the set of time series. Then, it can reproduce the path ensemble by sampling a same amount of time series, and quantify the similarity between data and sampling. It further calculates the trajectory probability for each time series, and the dynamical mutual information. 
+We provide a code repository, which only requires to input the stoichiometric matrix, initial conditions, and reaction rates, allowing the approach to be applicable and adaptable to more stochastic reaction networks.
 
 A detailed example on the methods is given in the main text. 
 
