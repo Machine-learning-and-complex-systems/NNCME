@@ -52,7 +52,7 @@ Scripts xxx.sh are commands to reproduce the results in Fig. 2~5. Directly runni
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
-A step-by-step guideline is on the website of the package: the website link will be generated after the manuscript is accepted. 
+A step-by-step guideline is on the website: the link will be generated after the manuscript is accepted. 
 
 Contact: Ying Tang, jamestang23@gmail.com; Jiayu Weng, 202011059131@mail.bnu.edu.cn
 
