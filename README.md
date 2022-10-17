@@ -18,7 +18,7 @@ Expected run time for the examples are provided in the Supplementary table of th
 
 # Inputs
 
-The input arguments include 
+The input arguments include:
 
 (1) the stoichiometric matrix, 
 
@@ -37,7 +37,7 @@ For hyperparameters, please use those in the Supplementary table of the manuscri
 
 # Examples
 
-Examples on the methods are given in the main text. The representative examples include  
+Examples on the methods are given in the main text. The representative examples include:  
 
 (1) the genetic toggle switch, 
 
@@ -49,7 +49,7 @@ Examples on the methods are given in the main text. The representative examples 
 
 They separately demonstrate that our approach is applicable to systems with a multimodal distribution, with an intrinsic constraint of count conservation, with time-dependent parameters, and in high dimensions.
 
-Contact: Ying Tang, jamestang23@gmail.com, 202011059131@mail.bnu.edu.cn
+Contact: Ying Tang, jamestang23@gmail.com; Jiayu Weng, 202011059131@mail.bnu.edu.cn
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
