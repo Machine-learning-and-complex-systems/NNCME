@@ -20,11 +20,11 @@ The input arguments include:
 
 (1) the stoichiometric matrix, 
 
-(2) initial conditions, 
+(2) reaction rates, 
 
-(3) reaction rates, 
+(3) propensities,
 
-(4) propensities,
+(4) initial conditions, 
 
 (5) hyperparameters of the neural network.
 
