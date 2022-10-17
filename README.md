@@ -9,7 +9,7 @@ A code package based on pytorch in Python with a documentation is provided. The 
 
 Examplse on the methods are given in the main text. The representative examples include the genetic toggle switch, the early life self-replicator, the epidemic model, and the intracellular signaling cascade. They separately demonstrate that our approach is applicable to systems with a multimodal distribution, with an intrinsic constraint of count conservation, with time-dependent parameters, and in high dimensions.
 
-Contact: Ying Tang, jamestang23@gmail.com
+Contact: Ying Tang, jamestang23@gmail.com, 202011059131@mail.bnu.edu.cn
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
