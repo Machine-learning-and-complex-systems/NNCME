@@ -51,7 +51,6 @@ Scripts xxx.sh are commands to reproduce the results in Fig. 2~5. Directly runni
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-Guideline
 
 A step-by-step guideline is on the website of the package: the website link will be generated after the manuscript is accepted. 
 
