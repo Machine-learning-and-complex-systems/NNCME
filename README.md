@@ -20,15 +20,17 @@ Expected run time for the examples are provided in the Supplementary table of th
 
 The input arguments include 
 
-(1) the stoichiometric  matrix, 
+(1) the stoichiometric matrix, 
 
 (2) initial conditions, 
 
 (3) reaction rates, 
 
-(4) propensities and hyperparameters. 
+(4) propensities,
 
-Then, the users only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
+(5) hyperparameters of the neural network
+
+For hyperparameters, please use those in the Supplementary table of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
