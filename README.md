@@ -5,13 +5,35 @@ NNCME stands for Neural Network Chemical Master Equation.
 (c) 2022, Lab of Machine Learning and Complex Systems
 All rights reserved. 
 
-A code package based on pytorch in Python with a documentation is provided. The input arguments include the stoichiometric  matrix, initial conditions, reaction rates, propensities and hyperparameters. Then, the users only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. This approach is applicable and adaptable to general stochastic reaction networks.
+A code package based on pytorch in Python with a documentation is provided. This approach is applicable and adaptable to general stochastic reaction networks.
 
-Examplse on the methods are given in the main text. The representative examples include  
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# Inputs
+
+The input arguments include 
+(1) the stoichiometric  matrix, 
+(2) initial conditions, 
+(3) reaction rates, 
+(4) propensities and hyperparameters. 
+
+Then, the users only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# Examples
+
+Examples on the methods are given in the main text. The representative examples include  
+
 (1) the genetic toggle switch, 
+
 (2) the early life self-replicator, 
+
 (3) the epidemic model, 
+
 (4) the intracellular signaling cascade. 
+
 They separately demonstrate that our approach is applicable to systems with a multimodal distribution, with an intrinsic constraint of count conservation, with time-dependent parameters, and in high dimensions.
 
 Contact: Ying Tang, jamestang23@gmail.com, 202011059131@mail.bnu.edu.cn
