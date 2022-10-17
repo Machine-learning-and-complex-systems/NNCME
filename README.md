@@ -9,6 +9,14 @@ A code package based on pytorch in Python with a documentation is provided. This
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+System requirements: 
+All simulations were done using Python.
+We have used the package Pytorch.
+
+Expected run time for the examples are provided in the Supplementary table of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
 # Inputs
 
 The input arguments include 
@@ -17,7 +25,7 @@ The input arguments include
 (3) reaction rates, 
 (4) propensities and hyperparameters. 
 
-Then, the users only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics.
+Then, the users only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -44,10 +52,3 @@ Guideline
 
 A step-by-step guideline is on the website of the package: the website link will be generated after the manuscript is accepted. 
 
---------------------------------------------------------------------------------------------------------------------------------------------
-
-System requirements: 
-All simulations were done using Python.
-We have used the Pytorch.
-
-Expected run time for the examples are provided in the Supplementary table of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100.
