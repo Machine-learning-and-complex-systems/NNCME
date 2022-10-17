@@ -4,7 +4,7 @@ All rights reserved.
 
 A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://arxiv.org/abs/2210.01169)
 
-NNCME stands for Neural Network Chemical Master Equation. It is a software package in Python. This approach is applicable and adaptable to general stochastic reaction networks. 
+NNCME stands for Neural Network Chemical Master Equation. This approach is applicable and adaptable to general stochastic reaction networks. The software package is in Python. 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
