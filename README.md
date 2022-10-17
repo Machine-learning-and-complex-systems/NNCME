@@ -28,7 +28,7 @@ The input arguments include:
 
 (4) propensities,
 
-(5) hyperparameters of the neural network
+(5) hyperparameters of the neural network.
 
 For hyperparameters, please use those in the Supplementary table of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
 
