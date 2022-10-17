@@ -1,12 +1,10 @@
 # NNCME
-(c) 2022, Lab of Machine Learning and Complex Systems
+(c) 2022, Lab of Machine Learning and Complex Systems.
 All rights reserved. 
 
 A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://arxiv.org/abs/2210.01169)
 
-NNCME stands for Neural Network Chemical Master Equation.
-
-A code package based on pytorch in Python with a documentation is provided. This approach is applicable and adaptable to general stochastic reaction networks. 
+NNCME stands for Neural Network Chemical Master Equation. It is a software package in Python. This approach is applicable and adaptable to general stochastic reaction networks. 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -21,9 +19,13 @@ Expected run time for the examples are provided in the Supplementary table of th
 # Inputs
 
 The input arguments include 
+
 (1) the stoichiometric  matrix, 
+
 (2) initial conditions, 
+
 (3) reaction rates, 
+
 (4) propensities and hyperparameters. 
 
 Then, the users only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
