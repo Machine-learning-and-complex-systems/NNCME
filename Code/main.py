@@ -229,32 +229,32 @@ def Test(model):
                     
                     
                         
-                #Plot training loss
-                if Tstep in args.training_loss_print_step:#[0,1,2,101,1001,2e3,1e4,1e5,2e5,3e5,4e5,5e5]:
-                # if Tstep<3 or Tstep==101 or Tstep==1001 or Tstep==2000 or Tstep==10000 or Tstep==100000 or Tstep==200000 or Tstep==300000 or Tstep==400000 or Tstep==500000:
-                    plt.figure(num=None,  dpi=300, edgecolor='k')
-                    fig, axes = plt.subplots(2,1)
-                    fig.tight_layout()
-                    ax = plt.subplot(2,1, 1)
-                    plt.plot(range(last_step + 1, args.max_step + 1), Listloss_mean, label='Loss_mean')
-                    plt.plot(range(last_step + 1, args.max_step + 1), Listloss_std, label='Loss_std')
-                    axes = plt.gca()
-                    axes.set_yscale('log')
-                    plt.ylabel('Loss')
-                    plt.xlabel('Epoch')
-                    plt.legend()        
-                    ax = plt.subplot(2,1, 2)
-                    axes = plt.gca()
-                    axes.set_yscale('log')
-                    plt.plot(range(last_step + 1, args.max_step + 1), ListDistanceCheck_Eucli, label='Euclidean distance')
-                    plt.plot(range(last_step + 1, args.max_step + 1), ListDistanceCheck, label='KL-divergence')
-                    plt.ylabel('Distance')
-                    plt.xlabel('Epoch')
-                    fig = plt.gcf()
-                    plt.legend()
-                    fig.set_size_inches(8, 8)
-                    plt.tight_layout()        
-                    plt.savefig('{}_img/TimeStep{}.jpg'.format(args.out_filename, Tstep), dpi=300)
+                # #Plot training loss
+                # if Tstep in args.training_loss_print_step:#[0,1,2,101,1001,2e3,1e4,1e5,2e5,3e5,4e5,5e5]:
+                # # if Tstep<3 or Tstep==101 or Tstep==1001 or Tstep==2000 or Tstep==10000 or Tstep==100000 or Tstep==200000 or Tstep==300000 or Tstep==400000 or Tstep==500000:
+                #     plt.figure(num=None,  dpi=300, edgecolor='k')
+                #     fig, axes = plt.subplots(2,1)
+                #     fig.tight_layout()
+                #     ax = plt.subplot(2,1, 1)
+                #     plt.plot(range(last_step + 1, args.max_step + 1), Listloss_mean, label='Loss_mean')
+                #     plt.plot(range(last_step + 1, args.max_step + 1), Listloss_std, label='Loss_std')
+                #     axes = plt.gca()
+                #     axes.set_yscale('log')
+                #     plt.ylabel('Loss')
+                #     plt.xlabel('Epoch')
+                #     plt.legend()        
+                #     ax = plt.subplot(2,1, 2)
+                #     axes = plt.gca()
+                #     axes.set_yscale('log')
+                #     plt.plot(range(last_step + 1, args.max_step + 1), ListDistanceCheck_Eucli, label='Euclidean distance')
+                #     plt.plot(range(last_step + 1, args.max_step + 1), ListDistanceCheck, label='KL-divergence')
+                #     plt.ylabel('Distance')
+                #     plt.xlabel('Epoch')
+                #     fig = plt.gcf()
+                #     plt.legend()
+                #     fig.set_size_inches(8, 8)
+                #     plt.tight_layout()        
+                #     plt.savefig('{}_img/TimeStep{}.jpg'.format(args.out_filename, Tstep), dpi=300)
 
             SummaryLoss1.append(Loss1)      
             SummaryLoss2.append(Loss2) 
