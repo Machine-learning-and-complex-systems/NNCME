@@ -42,19 +42,27 @@ To implement the code after providing the `.py` file, there are two ways:
 (b) PC users (Windows): you may use Spyder to run MasterEq.py with calling the name of your model script. You can properly adjust the hyperparameters in MasterEq.py, including those listed below.
 
 ```
-###Add models----------------------------------
+###Add models (necessary changes according to the new model)----------------------------------
 from ModelName import ModelName  #from your ModelName.py file import the model class
 
-##Set parameters-------------------------------
-###Initialize parameters: otherwise the parameters are specified in init_out_dir-> args.py
+###Set parameters begin (necessary changes according to the new model)-------------------------------
+###Initialize parameters
 args.Model='ModelName' #Change to your model name
-args.L=15 #Species number
-args.M=int(80) #Upper limit of the molecule number
-#...........More parameters in the code
+args.L=15 #The number of species
+args.M=int(80) #Upper limit on the count of species
+args.batch_size=100 #Number of batch samples
+args.Tstep=100# Time step of iterating the chemical master equation
+args.delta_t=0.0005 #Time step length of iterating the chemical master equation
+###Set parameters end-------------------------------
 
-###Add model command----------------------------
+#More hyperparameters parameters of the neural network
+#Please refer to Supplementary table II,III of the manuscript for the choice of the above hyperparameters if changes are required. If no specification, the parameters are initialized in MasterEq.py and args.py
+
+###Add model command begin (necessary changes according to the new model)----------------------------
 if args.Model=='ModelName':
     model = ModelName(**vars(args))   
+###Add model command end----------------------------
+
 
 ```
 --------------------------------------------------------------------------------------------------------------------------------------------
