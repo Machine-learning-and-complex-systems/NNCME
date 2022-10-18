@@ -17,7 +17,7 @@ We have used the package Pytorch. The code requires Python >= 3.6 and PyTorch >=
 
 # Inputs
 
-The users can conveniently input their system as a .py file: please refer to the existing example. The input arguments include:
+For a new model, the users can conveniently input their system as a `.py` file: please refer to the existing example. The input arguments include:
 
 (1) the stoichiometric matrix, 
 
@@ -31,7 +31,7 @@ The users can conveniently input their system as a .py file: please refer to the
 
 For hyperparameters, please use those in the Supplementary table II,III of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
 
-When exploring more models, after adding a .py file of the system please ensure to add more details and change the parameters in MasterEq.py. Necessary changes in the code are listed below.
+To implement the code, there are  please ensure to add more details and change the parameters in MasterEq.py. Necessary changes in the code are listed below.
 
 ```
 ###Add models----------------------------------
@@ -65,7 +65,7 @@ Examples on the methods are given in the main text. The representative examples 
 
 They separately demonstrate that our approach is applicable to systems with a multimodal distribution, with an intrinsic constraint of count conservation, with time-dependent parameters, and in high dimensions.
 
-Scripts `xxx.sh` are commands to reproduce the results in Fig. 2~5. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the Supplementary table II,III of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
+Scripts `.sh` in the folder "Shell' are commands to reproduce the results in Fig. 2~5. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the Supplementary table II,III of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
