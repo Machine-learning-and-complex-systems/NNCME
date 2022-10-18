@@ -1,5 +1,5 @@
 # NNCME
-(c) 2022, Lab of Machine Learning and Complex Systems.
+(c) Lab of Machine Learning and Complex Systems (2022).
 All rights reserved. 
 
 A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://arxiv.org/abs/2210.01169)
@@ -47,7 +47,7 @@ Examples on the methods are given in the main text. The representative examples 
 
 They separately demonstrate that our approach is applicable to systems with a multimodal distribution, with an intrinsic constraint of count conservation, with time-dependent parameters, and in high dimensions.
 
-Scripts 'xxx.sh' are commands to reproduce the results in Fig. 2~5. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the Supplementary table II,III of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
+Scripts `xxx.sh` are commands to reproduce the results in Fig. 2~5. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the Supplementary table II,III of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
