@@ -6,6 +6,7 @@ A software package for the manuscript "Neural-network solutions to stochastic re
 
 NNCME stands for Neural Network Chemical Master Equation. This approach is applicable and adaptable to general stochastic reaction networks. The software package is in Python. 
 
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 System requirements: 
@@ -30,7 +31,24 @@ The users can conveniently input their system as a .py file: please refer to the
 
 For hyperparameters, please use those in the Supplementary table II,III of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
 
+When adding more models, after adding a .py file of the system please ensure to add more details and change the parameters in MasterEq.py. Necessary changes in the code are listed below.
 
+'''
+###Add models----------------------------------
+from ModelName import ModelName  #from your ModelName.py file import the model class
+
+##Set parameters-------------------------------
+###Initialize parameters: otherwise the parameters are specified in init_out_dir-> args.py
+args.Model='ModelName' #Change to your model name
+args.L=15 #Species number
+args.M=int(80) #Upper limit of the molecule number
+#...........More parameters in the code
+
+###Add model command----------------------------
+if args.Model=='ModelName':
+    model = ModelName(**vars(args))   
+
+'''
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Examples
