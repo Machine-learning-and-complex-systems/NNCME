@@ -14,14 +14,14 @@ group.add_argument(
     '--Model',
     type=str,
     default='No',
-    choices=['No','cascade1','ToggleSwitch','cascade2','cascade3','repressilator','homo1','MM','AFL','GeneExp1', 'GeneExp2', 'BirthDeath', 'Moran','Epidemic'],
+    #choices=['No','cascade1','ToggleSwitch','cascade2','cascade3','repressilator','homo1','MM','AFL','GeneExp1', 'GeneExp2', 'BirthDeath', 'Moran','Epidemic'],
     help='Models for master equation')
 
 group.add_argument(
     '--IniDistri',
     type=str,
     default='delta',
-    choices=['delta','poisson'],
+    #choices=['delta','poisson'],
     help='Initial Distribution for the species')
 
 
