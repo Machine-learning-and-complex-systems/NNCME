@@ -29,79 +29,13 @@ from utils import (
     ensure_dir,
 )
 from utils import default_dtype_torch
-
+#######models:
+from cascade1 import cascade1
+from ToggleSwitch import ToggleSwitch
+from homo1 import homo1
+from Epidemic import Epidemic
 
 plt.rc('font', size=16)
-
-#Initialize parameters: otherwise the parameters are specified in init_out_dir-> args.py
-
-# Parameters of the chemical system
-# Following parameters are set for the example of gene expression
-args.species_num=2 #Number of species in the system
-args.upper_limit=100 #Upper limit of the Molecule number
-args.reaction_num=4 #Number of reactions in the system
-args.reaction_rates=[0.1,0.1,0.1,0.002] #Listed rates for each reaction
-args.initial_distribution='delta' #Initial Distribution for the species ('delta' or 'possion' distribution is supported)
-args.initial_num=[0,0] #Initial number for each species in a list (here we have zero mRNA and zero protein)
-args.reaction_matrix_left=[(0, 1,1,0), (0,0,0,1)] #The reaction matrix on the left (dimension: species_num*reactions_num) (stoichiometric matrix = reaction_matrix_left-reaction_matrix_right) 
-args.reaction_matrix_right=[(1, 1,0,0), (0,1,0,0)] #The reaction matrix on the right (dimension: species_num*reactions_num) (stoichiometric matrix = reaction_matrix_left-reaction_matrix_right) 
-args.MConstraint=1 #Add different number constraint for each species. If the upper limit for all species is the same as args.upper_limit, then set args.Mconstraint=1
-args.Conservation=1 # To maintain the total number of all species, set args.Conservation=initial_num.sum(), otherwise set it 1.
-
-# Parameters of the variational autoregressive network (VAN)
-args.batch_size=1000 #Number of samples
-args.training_step=1000 #Time step of iterating the dynamical equation P_tnew=T*P_t
-args.deltaT=0.1 #Time step length of iterating the dynamical equation
-args.net='rnn' #Network type ('made','rnn' and 'transformer' are supported)
-args.net_depth=1 #Network depth
-args.net_width=16 #Network width
-args.epoch1=3000 #Maximum number of steps first time step (usually larger to ensure the accuracy)
-args.epoch2=100 #Maximum number of steps of later time steps
-args.saving_data_time_step=[0,1e2,5e2,2e3,1e4,2e4,5e4,1e5,1.5e5,2e5,2.5e5,3e5,3.5e5,4e5,5e5,6e5,7e5,8e5,9e5,1e6] #To save data at which time steps (give in a list)
-args.training_loss_print_step=[0,1,2,101,1001,2e3,1e4,1e5,2e5,3e5,4e5,5e5] #To print training loss at which time steps (give in a list)
-
-
-class ModelName:
-    def __init__(self, *args, **kwargs):
-        super().__init__()
-        #self.n = kwargs['n']
-        self.L = kwargs['L']
-        self.M = kwargs['M']
-        self.bits = kwargs['bits']  
-        self.device = kwargs['device']
-        self.MConstrain = kwargs['MConstrain']
-        self.Para = kwargs['Para']
-        self.IniDistri = kwargs['IniDistri']
-        self.binary = kwargs['binary']
-        self.order = kwargs['order']
-        
-    def Propensity(self,Win,Wout,cc,SampleNeighbor1D_Win,SampleNeighbor1D,NotHappen_in_low,NotHappen_in_up,NotHappen_out_low,NotHappen_out_up):
-        Propensity_in=torch.prod(Win,1)*cc#torch.tensor(r, dtype=torch.float64).to(self.device)   
-        Propensity_out=torch.prod(Wout,1)*cc#torch.tensor(r, dtype=torch.float64).to(self.device)    
-    
-        return Propensity_in,Propensity_out
-    
-    
-    def rates(self):  
-        
-        self.L=args.species_num
-        initialD=np.array(args.initial_num).reshape(1,self.L)#0.1#0.1 # the parameter for the initial Poisson distribution
-        IniDistri=self.IniDistri=args.initial_distribution
-        print(self.IniDistri)
-        
-        r=torch.zeros(args.reaction_num) #Reaction rates
-        for i in range(args.reaction_num):r[i]=args.reaction_rates[i]
-
-        ReactionMatLeft=torch.as_tensor(args.reaction_matrix_left).to(self.device)#SpeciesXReactions
-        ReactionMatRight=torch.as_tensor(args.reaction_matrix_right).to(self.device)#SpeciesXReactions
-        
-        if args.MConstraint==1:MConstrain=np.zeros(args.MConstraint,dtype=int)
-        else:MConstrain=np.array(args.MConstraint,dtype=int)
-        conservation=np.ones(args.Conservation,dtype=int)
-        # Stoichiometric matrix
-        #V=ReactionMatRight-ReactionMatLeft #SpeciesXReactions    
-        return IniDistri,initialD,r,ReactionMatLeft,ReactionMatRight,MConstrain,conservation
-
 
 def Optimizer(net,args):
 
@@ -112,29 +46,35 @@ def Optimizer(net,args):
     optimizer = torch.optim.Adam(params, lr=args.lr, betas=(0.9, 0.999))
 
     return optimizer,params,nparams
-         
-          
+
+                   
 def Test():  
     # # # # # # #Initialize parameters: otherwise the parameters are specified in init_out_dir-> args.py
-    args.L=args.species_num
-    args.M=int(args.upper_limit)#Upper limit of the Molecule number
-    
-    args.batch_size=args.batch_size
-    args.Tstep=args.training_step#Time step of iterating the dynamical equation P_tnew=T*P_t, where T=(I+W*delta t)
-    args.delta_t=args.deltaT    
-    args.net =args.net
-    args.net_depth=args.net_depth# including output layer and not input data layer
-    args.net_width=args.net_width
-    args.max_stepAll=args.epoch1
-    args.max_stepLater=args.epoch2
 
+    args.Model='ToggleSwitch' #Model name
+    args.L=4#Species number
+    args.M=int(80) #Upper limit of the molecule number
+    args.batch_size=100 #Number of samples
+    args.Tstep=100# Time step of iterating the dynamical equation P_tnew=T*P_t, where T=(I+W*delta t)
+    args.delta_t=0.005 #Time step length of iterating the dynamical equation
+    
+    args.net ='rnn'
+    args.max_stepAll=3000 #Maximum number of steps first time step (usually larger to ensure the accuracy)
+    args.max_stepLater=100 #Maximum number of steps of later time steps
+    args.net_depth=1 # including output layer and not input data layer
+    args.net_width=32
+    args.d_model=16# transformer
+    args.d_ff=32# transformer
+    args.n_layers=2# transformer
+    args.n_heads=2# transformer
+    args.lr=0.001
     args.binary=False
     args.AdaptiveT=False
     args.AdaptiveTFold=5
     args.print_step=20
-    args.saving_data_time_step=args.saving_data_time_step
-    args.training_loss_print_step=args.training_loss_print_step
-
+    args.saving_data_time_step=[0,1e2,5e2,2e3,1e4,2e4,5e4,1e5,1.5e5,2e5,2.5e5,3e5,3.5e5,4e5,5e5,6e5,7e5,8e5,9e5,1e6] #To save data at which time steps (give in a list)
+    args.training_loss_print_step=[0,1,2,101,1001,2e3,1e4,1e5,2e5,3e5,4e5,5e5] #To print training loss at which time steps (give in a list)
+    
     #Default parameters:
     args.bias=True
     args.bits=1
@@ -143,24 +83,29 @@ def Test():
     args.Percent=0.2         
     args.clip_grad=1
     args.dtype='float64'
-    args.epsilon=1e-300#initial probability of zero species number
+    args.epsilon=1e-30#initial probability of zero species number
     args.lr_schedule=False#True
     start_time2 = time.time()
 
-
-    model = ModelName(**vars(args))   
-    
-    args.IniDistri,args.initialD,r,ReactionMatLeft,ReactionMatRight,args.MConstrain,args.conservation=model.rates()
+    ####### Models: #######################
+    if args.Model=='cascade1': 
+        model = cascade1(**vars(args)) 
+    if args.Model=='ToggleSwitch':
+        model = ToggleSwitch(**vars(args))   
+    if args.Model=='homo1':
+        model = homo1(**vars(args))   
+    if args.Model=='Epidemic':
+        model = Epidemic(**vars(args))         
+        
+    if args.Model!='Epidemic':
+        args.IniDistri,args.initialD,r,ReactionMatLeft,ReactionMatRight,args.MConstrain,args.conservation=model.rates()
+        cc=torch.as_tensor(r, dtype=default_dtype_torch).to(args.device)
+        V=ReactionMatRight-ReactionMatLeft #SpeciesXReactions 
     print(args.initialD)
     print(args.conservation)
     print(args.MConstrain)
-    if args.Model=='homo1' or args.Model=='ToggleSwitch':
-       args.epsilon=1e-30
-
-      
-    cc=torch.as_tensor(r, dtype=default_dtype_torch).to(args.device)
-    V=ReactionMatRight-ReactionMatLeft #SpeciesXReactions    
-    
+       
+     
     args.size=args.L # the number of spin: 1D, doesnt' count the boundary spins
     for delta_tt in np.arange(1): #The result is not sensitively depend on time steplength so far
         start_time = time.time()
@@ -226,7 +171,12 @@ def Test():
             
             
             for Tstep in range(startT,args.Tstep): # Time step of the dynamical equation
-                ### Load parameters of last training: if necessary
+                if args.Model=='Epidemic':
+                    args.IniDistri,args.initialD,r,ReactionMatLeft,ReactionMatRight,args.MConstrain,args.conservation=model.rates(Tstep,args.delta_t)
+                    cc=torch.as_tensor(r, dtype=default_dtype_torch).to(args.device)
+                    V=ReactionMatRight-ReactionMatLeft #SpeciesXReactions    
+                    ### Load parameters of last training: if necessary
+                    
                 if args.lr_schedule:  
                     if args.lr_schedule_type==1:
                         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
@@ -321,7 +271,7 @@ def Test():
                     delta_TSum.append(delta_T)
                     net_new=copy.deepcopy(net)#net
                     net_new.requires_grad=False
-                    if Tstep in args.saving_data_time_step:#[0,1e2,5e2,2e3,1e4,2e4,5e4,1e5,1.5e5,2e5,2.5e5,3e5,3.5e5,4e5,5e5,6e5,7e5,8e5,9e5,1e6]:
+                    if Tstep in args.saving_data_print_step:#[0,1e2,5e2,2e3,1e4,2e4,5e4,1e5,1.5e5,2e5,2.5e5,3e5,3.5e5,4e5,5e5,6e5,7e5,8e5,9e5,1e6]:
                     # if (Tstep==0 or Tstep==100 or Tstep==500 or Tstep==2000 or Tstep==10000 or Tstep==20000 or Tstep==50000 or Tstep==100000 or Tstep==150000 or Tstep==200000 or Tstep==250000 or Tstep==300000 or Tstep==350000 or Tstep==400000 or Tstep==500000 or Tstep==600000 or Tstep==700000 or Tstep==800000 or Tstep==900000 or Tstep==1000000):# and not args.loadVAN:
                         PATH=args.out_filename+'Tstep'+str(Tstep)
                         #torch.save(net, PATH)

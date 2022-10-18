@@ -11,11 +11,7 @@
 # load the environment
 module purge
 
-CUDA_LAUNCH_BLOCKING=1 python3 MasterEq.py \
---species_num 4 -upper_limit 80 --reaction_num 8 --reaction_rates [50,50,1,1,1e-4,1e-4,0.1,0.1] --initial_distirbution 'delta' --initial_num [1,1,0,0] \
---reaction_matrix_left [(1,0,0,0,0,1,0,0),(0,1,0,0,1,0,0,0),(0,0,1,0,2,0,0,0),(0,0,0,1,0,2,0,0)] --reaction_matrix_right [(1,0,0,0,0,0,0,1),(0,1,0,0,0,0,1,0),(1,0,0,0,0,0,2,0),(0,1,0,0,0,0,0,2)] \
---MConstraint [2,2,80,80] --Conservation 1 \
---batch_size 1000 --training_step 8001 --deltaT 0.005 --net 'rnn'  --net_depth 1 --net_width 32 --epoch1 5000 --epoch2 100
+CUDA_LAUNCH_BLOCKING=1 python3 MasterEq-Jiayu.py --L 4 --M 80 --Model 'ToggleSwitch' --net 'rnn' --lossType 'kl' --max_stepAll 5000 --max_stepLater 100 --lr 0.001 --net_depth 1 --net_width 32 --print_step 40 --batch_size 1000 --Tstep 8001 --delta_t 0.005 --cuda 0 --dtype float64
 
 #exit 0
 

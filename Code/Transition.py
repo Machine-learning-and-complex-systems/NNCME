@@ -31,10 +31,8 @@ def DeltaFunction(args,X,Y):
     if args.MConstrain[0]==0:
         args.MConstrain=args.M*np.ones(args.L, dtype=int)#args.MConstrain->args.L
     if len(X.shape)==2:
-        # SmallProb=torch.full(size=(X.shape[0],X.shape[1]),fill_value=factor/(args.MConstrain-1),dtype=default_dtype_torch).to(args.device)
         SmallProb=torch.tensor((factor/(args.MConstrain-1)).reshape(1,-1).repeat(args.batch_size, axis=0), dtype=default_dtype_torch).to(args.device)  
     if len(X.shape)==3:
-        # SmallProb=torch.full(size=(X.shape[0],X.shape[1],X.shape[2]),fill_value=factor/(args.MConstrain-1),dtype=default_dtype_torch).to(args.device)
         SmallProb=torch.tensor((factor/(args.MConstrain-1)).reshape(1,-1,1).repeat(args.batch_size, axis=0).repeat(X.shape[2], axis=2), dtype=default_dtype_torch).to(args.device)  
     Prob[X-Y==0]=torch.tensor(1-factor, dtype=default_dtype_torch).to(args.device)
     # print(Prob.shape,SmallProb.shape)
