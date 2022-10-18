@@ -42,8 +42,9 @@ To implement the code after providing the `.py` file, there are two ways:
 (b) PC users (Windows): you may use Spyder to run MasterEq.py with calling the name of your model script. You can properly adjust the hyperparameters in MasterEq.py, including those listed below.
 
 ```
-###Add models (necessary changes according to the new model)----------------------------------
+###Add models begin (necessary changes according to the new model)----------------------------------
 from ModelName import ModelName  #from your ModelName.py file import the model class
+###Add models end----------------------------------
 
 ###Set hyperparameters begin (necessary changes according to the new model)-------------------------------
 args.Model='ModelName' #Change to your model name
