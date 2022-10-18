@@ -71,7 +71,7 @@ group.add_argument(
     '--net',
     type=str,
     default='rnn',
-    choices=['made','rnn', 'transformer'],
+    choices=['rnn', 'transformer'],
     help='network type')
 group.add_argument('--net_depth', type=int, default=3, help='network depth')
 group.add_argument('--net_width', type=int, default=64, help='network width')
