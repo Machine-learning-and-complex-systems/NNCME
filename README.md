@@ -33,7 +33,7 @@ For hyperparameters, please use those in the Supplementary table II,III of the m
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-# Platform
+# Platforms
 
 To implement the code after providing the `.py` file, there are two ways:
 
@@ -45,7 +45,7 @@ To implement the code after providing the `.py` file, there are two ways:
 ###Add models (necessary changes according to the new model)----------------------------------
 from ModelName import ModelName  #from your ModelName.py file import the model class
 
-###Set parameters begin (necessary changes according to the new model)-------------------------------
+###Set hyperparameters begin (necessary changes according to the new model)-------------------------------
 args.Model='ModelName' #Change to your model name
 args.L=15 #The number of species
 args.M=int(80) #Upper limit on the count of species
@@ -53,10 +53,10 @@ args.batch_size=100 #Number of batch samples
 args.Tstep=100# Time step of iterating the chemical master equation
 args.delta_t=0.0005 #Time step length of iterating the chemical master equation
 
-#More hyperparameters parameters of the neural network (unnecessary changes)
+#More hyperparameters of the neural network (unnecessary changes)
 #Please refer to Supplementary table II,III of the manuscript for the choice of the above hyperparameters if changes are required. 
 #If no specification, the parameters will be the default in MasterEq.py and args.py
-###Set parameters end-------------------------------
+###Set hyperparameters end-------------------------------
 
 ###Add model command begin (necessary changes according to the new model)----------------------------
 if args.Model=='ModelName':
