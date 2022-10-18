@@ -31,7 +31,15 @@ For a new model, the users can conveniently input their system as a `.py` file: 
 
 For hyperparameters, please use those in the Supplementary table II,III of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package.
 
-To implement the code, there are  please ensure to add more details and change the parameters in MasterEq.py. Necessary changes in the code are listed below.
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# Platform
+
+To implement the code after providing the `.py` file, there are two ways:
+
+(a) Server: you can use a `.sh` to input the hyperparameters from the shell. Please refer to scripts `.sh` in the folder "Shell'.
+
+(b) PC users (Windows): you may use Spyder to run MasterEq.py with calling the name of your model script. You can properly adjust the hyperparameters in MasterEq.py, including those listed below.
 
 ```
 ###Add models----------------------------------
