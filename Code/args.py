@@ -192,6 +192,15 @@ group.add_argument(
     type=str,
     default='out',
     help='directory prefix for output, empty for disabled')
-
+group.add_argument(
+    '--saving_data_time_step',
+    type=list,
+    default=[0,1e2,5e2,2e3,1e4,2e4,5e4,1e5,1.5e5,2e5,2.5e5,3e5,3.5e5,4e5,5e5,6e5,7e5,8e5,9e5,1e6],
+    help='To save data at which time steps (give in a list)')
+group.add_argument(
+    '--training_loss_print_step',
+    type=list,
+    default=[0,1,2,101,1001,2e3,1e4,1e5,2e5,3e5,4e5,5e5],
+    help='To print training loss at which time steps (give in a list)')
 
 args = parser.parse_args()

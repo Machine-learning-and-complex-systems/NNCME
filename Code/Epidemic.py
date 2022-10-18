@@ -25,11 +25,8 @@ class Epidemic:
         
     def rates(self,Tstep,delta_t):  
         
-        #delta=0.1
+
         IniDistri='delta'
-        # self.L=3
-        print(self.L)
-        print(self.IniDistri)
         r=np.zeros(6)
         r[0] = 0.003
         r[1] = 0.02
