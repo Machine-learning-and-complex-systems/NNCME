@@ -16,7 +16,7 @@ We have used the package Pytorch. The code requires Python >= 3.6 and PyTorch >=
 
 # Inputs
 
-The input arguments include:
+The users can conveniently input their system as a .py file: please refer to the existing example. The input arguments include:
 
 (1) the stoichiometric matrix, 
 
