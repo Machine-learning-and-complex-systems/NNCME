@@ -4,7 +4,7 @@ import torch
 
 # ########cascade1:
 
-class cascade1:
+class cascade1_inverse:
     def __init__(self, *args, **kwargs):
         super().__init__()
         #self.n = kwargs['n']
@@ -24,27 +24,29 @@ class cascade1:
         return Propensity_in,Propensity_out
     
     def rates(self): 
-
+        
         beta =10
         k = 5
         gamma =1
         initialD=np.ones((1,self.L))*(-1)#0.1#0.1 # the parameter for the initial Poisson distribution
         r=torch.zeros(2*self.L)
-        r[0] = beta
         for ii in range(self.L): # decay
             r[2*ii+1]=gamma
-        for ii in range(1,self.L): # decay
+        for ii in range(self.L): # decay
             r[2*ii]=k
+        r[-2] = beta
         ReactionMatLeft = torch.zeros((self.L,2*self.L)).to(self.device)
         for i in range(self.L): # decay
             ReactionMatLeft[i,2*i+1]=1
         for i in range(1,self.L): # decay
             ReactionMatLeft[i-1,2*i]=1
+        ReactionMatLeft[i,0]=1
+        ReactionMatLeft[i-1,2*i]=0
         ReactionMatRight = torch.zeros((self.L,2*self.L)).to(self.device)
         ReactionMatRight[0,0]=1
         for i in range(1,self.L): # decay
             ReactionMatRight[i,2*i]=1
-        print(ReactionMatRight.shape)
+        print(ReactionMatLeft)
         # have checked (ReactionMatRight-ReactionMatLeft)
         IniDistri='delta'
         MConstrain=np.zeros(1,dtype=int)

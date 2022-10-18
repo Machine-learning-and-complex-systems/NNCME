@@ -7,18 +7,24 @@ from ToggleSwitch import ToggleSwitch
 from EarlyLife import EarlyLife
 from Epidemic import Epidemic
 from cascade1 import cascade1
+from cascade1_inverse import cascade1_inverse
+from cascade2 import cascade2
+from cascade3 import cascade3
+from BirthDeath import BirthDeath
+from GeneExp import GeneExp
+from AFL import AFL
 
 ##Set parameters-------------------------------
 ###Initialize parameters: otherwise the parameters are specified in init_out_dir-> args.py
-args.Model='cascade1' #Model name
-args.L=15#Species number
+args.Model='ToggleSwitch' #Model name
+args.L=4#Species number
 args.M=int(80) #Upper limit of the molecule number
 args.batch_size=100 #Number of samples
 args.Tstep=100# Time step of iterating the dynamical equation P_tnew=T*P_t, where T=(I+W*delta t)
 args.delta_t=0.0005 #Time step length of iterating the dynamical equation
 
 args.net ='rnn'
-args.max_stepAll=3000 #Maximum number of steps first time step (usually larger to ensure the accuracy)
+args.max_stepAll=2000 #Maximum number of steps first time step (usually larger to ensure the accuracy)
 args.max_stepLater=100 #Maximum number of steps of later time steps
 args.net_depth=1 # including output layer and not input data layer
 args.net_width=32
@@ -54,7 +60,19 @@ if args.Model=='Epidemic':
     model = Epidemic(**vars(args))   
 if args.Model=='cascade1': 
     model = cascade1(**vars(args)) 
-
+if args.Model=='cascade1_inverse':
+    model = cascade1_inverse(**vars(args)) 
+if args.Model=='cascade2':
+    model = cascade2(**vars(args))    
+if args.Model=='cascade3':
+    model = cascade3(**vars(args))    
+if args.Model=='BirthDeath':
+    model = BirthDeath(**vars(args))   
+if args.Model=='GeneExp':
+    model = GeneExp(**vars(args))   
+if args.Model=='AFL':
+    model = AFL(**vars(args)) 
+    
 #Run model-----------------------------------------        
 if __name__ == '__main__':
     Test(model)    
