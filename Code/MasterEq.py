@@ -14,7 +14,6 @@ from torch import nn
 import matplotlib.pyplot as plt
 import copy
 from args import args
-#from made1D import MADE1D
 from gru import GRU
 from transformer import TraDE
 from Transition import DeltaFunction,TransitionState
