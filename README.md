@@ -68,9 +68,9 @@ from ModelName import ModelName  #from your ModelName.py file import the model c
 
 ###Set hyperparameters begin (necessary changes according to the new model)-------------------------------
 args.Model='ModelName' #Change to your model name
-args.L=15 #The number of species
+args.L=4 #The number of species
 args.M=int(80) #Upper limit on the count of species
-args.batch_size=100 #Number of batch samples
+args.batch_size=1000 #Number of batch samples
 args.Tstep=100# Time step of iterating the chemical master equation
 args.delta_t=0.0005 #Time step length of iterating the chemical master equation
 
