@@ -45,11 +45,11 @@ Note:
 
 (f) Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'. 
 
-If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
+(g) If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
 
-(b) For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The 'Mask' function allows only the reactions with such a proper count to occur. 
+(h) For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The 'Mask' function allows only the reactions with such a proper count to occur. 
 
-(c) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
+(i) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
