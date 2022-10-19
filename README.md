@@ -29,18 +29,18 @@ For a new model, the users can conveniently input their system as a `.py` file: 
 
 (5) hyperparameters of the neural network.
 
-For hyperparameters, please use those in the Supplementary table II,III of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package. 
-
-
-In creating the `.py` file, typically you only need to input the above (1) (2) (3) (4) in the function "rates". 
+In creating the `.py` file, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. 
 The stoichiometric matrix needs to be put seperately for the left and right side of the reactions, in the variable "ReactionMatLeft" and "ReactionMatRight" seperately.
 The initial condition is set as the discrete delta distribution concentrated on the given number in the variable "initialD".
+
+For hyperparameters, please use those in the Supplementary table II,III of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package. 
+
 
 Note: 
 
 (a) If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
 
-(b) For some examples (e.g. toggle switch), there is another function with name "Mask" in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The "Mask" function allows only the reactions with such a proper count to occur. 
+(b) For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The "Mask" function allows only the reactions with such a proper count to occur. 
 
 (c) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
 
