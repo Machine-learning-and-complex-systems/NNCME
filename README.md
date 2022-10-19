@@ -29,7 +29,7 @@ For a new model, the users can conveniently input their system as a `.py` file: 
 
 (5) hyperparameters of the neural network.
 
-In creating the `.py` file, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. 
+In creating the `.py` file, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. Then, you only need to use run MasterEq.py (see below) to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics.
 
 Note: 
 
@@ -39,9 +39,11 @@ Note:
 
 (c) The default propensities follow the law of mass action. Other types such as the Hill function can be implemented, and refer to the example cascade2.
 
-(d) The initial condition is set as the discrete delta distribution concentrated on the given number in the variable "initialD". Other types of distribution such as Poisson distribution can be added to the code if the users have the demand.
+(d) The default initial condition is the discrete delta distribution concentrated on the given number in the variable "initialD". Other types of distribution such as Poisson distribution can be added to the code if the users have the demand.
 
-(d) For hyperparameters, please use those in the Supplementary table II,III of the manuscript as a reference for your example. Then, you only need to use a function to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics. Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option in this package. 
+(e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your example. 
+
+(f) Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'. 
 
 If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
 
@@ -56,7 +58,7 @@ If certain species count has a constrained maximum limit, please put it into the
 
 To implement the code after providing the `.py` file, there are two ways:
 
-(a) Server: you can use a `.sh` to input the hyperparameters from the shell. Please refer to scripts `.sh` in the folder "Shell'.
+(a) Server: you can use a `.sh` to input the hyperparameters from the shell. Please refer to scripts `.sh` in the folder "Shell".
 
 (b) PC users (Windows): you may use Spyder to run MasterEq.py with calling the name of your model script. You can properly adjust the hyperparameters in MasterEq.py, including those listed below.
 
