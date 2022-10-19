@@ -19,14 +19,17 @@ class ToggleSwitch:
         self.MConstrain = kwargs['MConstrain']
         # self.Para = kwargs['Para']
         self.IniDistri = kwargs['IniDistri']
-        
+    
+    # It is used to constrain the count of certain species. 
+    # For example, DNA typically only has the count of 0 or 1 inside a cell. 
+    # The "Mask" function allows only the reactions with such a proper count to occur.
     def MaskToggleSwitch(self,SampleNeighbor1D_Win,WinProd):
         Mask1=torch.ones_like(WinProd)
-        Gx=SampleNeighbor1D_Win[:,0,:] #Gx for different reactions
-        Gy=SampleNeighbor1D_Win[:,1,:] #Gy for different reactions
+        Gx=SampleNeighbor1D_Win[:,0,:] #Gx for different reactions: the second dimension of SampleNeighbor1D_Win is the label of species
+        Gy=SampleNeighbor1D_Win[:,1,:] #Gy for different reactions: the second dimension of SampleNeighbor1D_Win is the label of species
         Gx1=1-Gx
         Gy1=1-Gy
-        Mask1[Gx[:,0]!=1,0]=0
+        Mask1[Gx[:,0]!=1,0]=0 #The second dimension of Gx and Mask1 is the label of reactions
         Mask1[Gx[:,5]!=1,5]=0
         Mask1[Gy[:,1]!=1,1]=0
         Mask1[Gy[:,4]!=1,4]=0
