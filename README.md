@@ -35,7 +35,7 @@ Note:
 
 (a) The stoichiometric matrix needs to be put seperately for the left and right side of the reactions, in the variable "ReactionMatLeft" and "ReactionMatRight" seperately. The stoichiometric matrix = ReactionMatRight - ReactionMatLeft.
 
-(b) The reaction rate variable "r". 
+(b) The reaction rate variable "r". For time-dependent rates, please refer to the example Epidemic.
 
 (c) The default propensities follow the law of mass action. Other types such as the Hill function can be implemented, and refer to the example cascade2.
 
