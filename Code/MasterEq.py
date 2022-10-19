@@ -18,13 +18,13 @@ from AFL import AFL
 ###Initialize parameters: otherwise the parameters are specified in init_out_dir-> args.py
 args.Model='ToggleSwitch' #Model name
 args.L=4#Species number
-args.M=int(80) #Upper limit of the molecule number
-args.batch_size=100 #Number of samples
-args.Tstep=100# Time step of iterating the dynamical equation P_tnew=T*P_t, where T=(I+W*delta t)
-args.delta_t=0.0005 #Time step length of iterating the dynamical equation
+args.M=int(80) #Upper limit of the molecule number: it is adjustable and can be indicated by doing a few Gillespie simulation. 
+args.batch_size=1000 #Number of batch samples
+args.Tstep=1000# Time step of iterating the chemical master equation
+args.delta_t=0.0005 #Time step length of iterating the chemical master equation, depending on the reaction rates
 
 args.net ='rnn'
-args.max_stepAll=2000 #Maximum number of steps first time step (usually larger to ensure the accuracy)
+args.max_stepAll=5000 #Maximum number of steps first time step (usually larger to ensure the accuracy)
 args.max_stepLater=100 #Maximum number of steps of later time steps
 args.net_depth=1 # including output layer and not input data layer
 args.net_width=32
