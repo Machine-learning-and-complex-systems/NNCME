@@ -28,7 +28,7 @@ class cascade1:
         beta =10
         k = 5
         gamma =1
-        initialD=np.ones((1,self.L))*(-1)#0.1#0.1 # the parameter for the initial Poisson distribution
+        initialD=np.zeros((1,self.L))*(-1)#the parameter for the initial delta distribution
         r=torch.zeros(2*self.L)
         r[0] = beta
         for ii in range(self.L): # decay

@@ -40,7 +40,8 @@ class cascade3:
         km=100 #(1+(km/b)x^H/(k0+x^H))
         k0=10
         H=1
-        initialD=np.ones((1,self.L))*(-1)#0.1#0.1 # the parameter for the initial Poisson distribution
+        #initialD=np.ones((1,self.L))*(-1)#0.1#0.1 # the parameter for the initial Poisson distribution
+        initialD=np.zeros((1,self.L))*(-1)#the parameter for the initial delta distribution
         r=torch.zeros(2*self.L,2)
         r[0,0] = b
         r[0,1] =km

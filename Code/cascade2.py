@@ -77,7 +77,8 @@ class cascade2:
         if self.Para!=1:
             self.MConstrain=np.ones(self.L, dtype=int)*int(self.Para) #Number constrain
             self.MConstrain[-1]=int(self.M)
-        initialD=np.ones((1,self.L))*(-1)#0.1#0.1 # the parameter for the initial Poisson distribution
+        #initialD=np.ones((1,self.L))*(-1)#0.1#0.1 # the parameter for the initial Poisson distribution
+        initialD=np.zeros((1,self.L))*(-1)#the parameter for the initial delta distribution
         r=torch.zeros(2*self.L,2)
         r[0,0] = beta
         r[0,1] =km
