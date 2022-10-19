@@ -36,7 +36,13 @@ In creating the `.py` file, typically you only need to input the above (1) (2) (
 The stoichiometric matrix needs to be put seperately for the left and right side of the reactions, in the variable "ReactionMatLeft" and "ReactionMatRight" seperately.
 The initial condition is set as the discrete delta distribution concentrated on the given number in the variable "initialD".
 
-Note: for some examples (e.g. toggle switch), there is another function with name "Mask" in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The "Mask" function allows only the reactions with such a proper count to occur. 
+Note: 
+
+(a) If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
+
+(b) For some examples (e.g. toggle switch), there is another function with name "Mask" in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The "Mask" function allows only the reactions with such a proper count to occur. 
+
+(c) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
