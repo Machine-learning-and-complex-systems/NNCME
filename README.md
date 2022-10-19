@@ -4,7 +4,7 @@ All rights reserved.
 
 A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://arxiv.org/abs/2210.01169)
 
-NNCME stands for Neural Network Chemical Master Equation. This approach is applicable and adaptable to general stochastic reaction networks. The software package is in Python. 
+NNCME stands for Neural Network Chemical Master Equation. This approach is applicable and adaptable to general stochastic reaction networks. The software package is written in Python. 
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ For a new model, the users can conveniently input their system as a `.py` file: 
 
 (5) hyperparameters of the neural network.
 
-In creating the `.py` file, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. Then, you only need to use run MasterEq.py (see below) to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics.
+To create a new `.py` file for your model, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. Then, please run MasterEq.py (see below) to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics.
 
 Note: 
 
@@ -37,19 +37,19 @@ Note:
 
 (b) The reaction rate variable is "r". For time-dependent rates, please refer to the example Epidemic.
 
-(c) The default propensities follow the law of mass action. Other types such as the Hill function can be implemented, and refer to the example cascade2.
+(c) The default propensities follow the law of mass action. Other types such as the Hill function can be implemented: refer to the example cascade2.
 
 (d) The default initial condition is the discrete delta distribution concentrated on the given number in the variable "initialD". Other types of distribution such as Poisson distribution can be added to the code if the users have the demand.
 
-(e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your example.
+(e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your model.
 
-(f) Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'.
+(f) Optional: Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'.
 
-(g) If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
+(g) Optional: If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
 
-(h) For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The 'Mask' function allows only the reactions with such a proper count to occur.
+(h) Optional: For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file. The 'Mask' function allows only the reactions with such a proper count to occur. For example, DNA typically has the count of 0 or 1 inside a cell.
 
-(i) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
+(i) Optional: If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
