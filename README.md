@@ -33,24 +33,23 @@ In creating the `.py` file, typically you only need to input the above (1) (2) (
 
 Note: 
 
-(a) The stoichiometric matrix needs to be put seperately for the left and right side of the reactions, in the variable "ReactionMatLeft" and "ReactionMatRight" seperately. The stoichiometric matrix = ReactionMatRight - ReactionMatLeft.
+(a) The stoichiometric matrix needs to be put separately for the left and right side of the reactions, in the variable "ReactionMatLeft" and "ReactionMatRight" separately. The stoichiometric matrix = ReactionMatRight - ReactionMatLeft.
 
-(b) The reaction rate variable "r". For time-dependent rates, please refer to the example Epidemic.
+(b) The reaction rate variable is "r". For time-dependent rates, please refer to the example Epidemic.
 
 (c) The default propensities follow the law of mass action. Other types such as the Hill function can be implemented, and refer to the example cascade2.
 
 (d) The default initial condition is the discrete delta distribution concentrated on the given number in the variable "initialD". Other types of distribution such as Poisson distribution can be added to the code if the users have the demand.
 
-(e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your example. 
+(e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your example.
 
-(f) Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'. 
+(f) Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'.
 
 (g) If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
 
-(h) For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The 'Mask' function allows only the reactions with such a proper count to occur. 
+(h) For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file, which is used to constrain the count of certain species. For example, DNA typically only has the count of 0 or 1 inside a cell. The 'Mask' function allows only the reactions with such a proper count to occur.
 
 (i) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
-
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -60,7 +59,7 @@ To implement the code after providing the `.py` file, there are two ways:
 
 (a) Server: you can use a `.sh` to input the hyperparameters from the shell. Please refer to scripts `.sh` in the folder "Shell".
 
-(b) PC users (Windows): you may use Spyder to run MasterEq.py with calling the name of your model script. You can properly adjust the hyperparameters in MasterEq.py, including those listed below.
+(b) PC users (Windows): you may use Spyder to run MasterEq.py by calling the name of your model script. You can properly adjust the hyperparameters in MasterEq.py, including those listed below.
 
 ```
 ###Add models begin (necessary changes according to the new model)----------------------------------
@@ -89,7 +88,7 @@ if args.Model=='ModelName':
 
 # Examples
 
-Examples on the methods are given in the main text. The representative examples include:  
+Examples of the methods are given in the main text. The representative examples include:  
 
 (1) the genetic toggle switch, 
 
@@ -101,7 +100,7 @@ Examples on the methods are given in the main text. The representative examples 
 
 They separately demonstrate that our approach is applicable to systems with a multimodal distribution, with an intrinsic constraint of count conservation, with time-dependent parameters, and in high dimensions.
 
-Scripts `.sh` in the folder "Shell' are commands to reproduce the results in Fig. 2~5. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the Supplementary table II,III of the manuscript: All computational are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
+Scripts `.sh` in the folder "Shell' are commands to reproduce the results in Fig. 2~5. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the Supplementary table II,III of the manuscript: All computations are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
