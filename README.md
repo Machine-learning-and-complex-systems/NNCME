@@ -4,7 +4,7 @@ All rights reserved.
 
 A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://arxiv.org/abs/2210.01169)
 
-NNCME stands for Neural Network Chemical Master Equation. This approach is applicable and adaptable to general stochastic reaction networks. The software package is written in Python. 
+NNCME stands for Neural Network Chemical Master Equation. It tracks the time evolution of stochastic reaction networks by training the variational autoregressive neural network, which generates the time evolution of the joint probability distribution and the marginal statistics. This approach is applicable and adaptable to general stochastic reaction networks. 
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ For a new model, the users can conveniently input their system as a `.py` file: 
 
 (5) hyperparameters of the neural network.
 
-To create a new `.py` file for your model, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. Then, please run MasterEq.py (see below) to train the VAN, and to generate the time evolution of the joint probability distribution and the marginal statistics.
+To create a new `.py` file for your model, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. Then, please run MasterEq.py (see below).
 
 Note: 
 
