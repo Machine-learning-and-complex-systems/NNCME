@@ -105,7 +105,7 @@ Scripts `.sh` in the folder "Shell' are commands to reproduce the results in Fig
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
-A step-by-step guideline of implementing an example is on the website: the link will be generated after the manuscript is accepted. 
+A step-by-step guideline of implementing an example is on the Jupyter notebook: `A Simple Template.ipynb` and `Detailed Version of Gene Expression.ipynb`. 
 
 Contact: Ying Tang, jamestang23@gmail.com; Jiayu Weng, 202011059131@mail.bnu.edu.cn
 
