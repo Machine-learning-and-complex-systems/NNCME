@@ -54,6 +54,12 @@ Note:
 
 (i) Optional: If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
 
+(j) Optional: `main2.py` use samples from the same probability distribution at the last training step. `main.py` use samples over the last $10$ training steps where the loss function already converges.
+
+(k) Optional: `ParameterSearch.py` has a for loop to scan hyperparameters and call our current main script in the for loops: each for loop just runs the main script for around $10$ time steps and output the converged loss, such that one can compare the loss across different hyperparameters.
+
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Platforms
