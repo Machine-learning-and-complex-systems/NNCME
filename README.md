@@ -34,7 +34,7 @@ For a new model, the users can conveniently input their system as a `.py` file: 
 
 To create a new `.py` file for your model, typically you only need to input the above (1) (2) (3) (4) in the function 'rates'. Then, please run MasterEq.py (see below).
 
-Note: 
+## Note: 
 
 (a) The stoichiometric matrix needs to be put separately for the left and right side of the reactions, in the variable "ReactionMatLeft" and "ReactionMatRight" separately. The stoichiometric matrix = ReactionMatRight - ReactionMatLeft.
 
@@ -46,18 +46,21 @@ Note:
 
 (e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your model.
 
-(f) Optional: Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'.
+## Optional implementation:
 
-(g) Optional: If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
+(a) Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'.
 
-(h) Optional: For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file. The 'Mask' function allows only the reactions with such a proper count to occur. For example, DNA typically has the count of 0 or 1 inside a cell.
+(b) If certain species count has a constrained maximum limit, please put it into the variable "MConstrain"
 
-(i) Optional: If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
+(c) For some examples (e.g. toggle switch), there is another function with name 'Mask' in its `.py` file. The 'Mask' function allows only the reactions with such a proper count to occur. For example, DNA typically has the count of 0 or 1 inside a cell.
 
-(j) Optional: `main2.py` use samples from the same probability distribution at the last training step. `main.py` use samples over the last $10$ training steps where the loss function already converges.
+(d) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
 
-(k) Optional: `ParameterSearch.py` has a for loop to scan hyperparameters and call our current main script in the for loops: each for loop just runs the main script for around $10$ time steps and output the converged loss, such that one can compare the loss across different hyperparameters.
+(e) One can use `main2.py` to generate samples from the same probability distribution at the last training step. (`main.py` use samples over the last $10$ training steps where the loss function already converges.)
 
+(f) `ParameterSearch.py` has a for loop to scan hyperparameters and call our current main script in the for loops: each for loop just runs the main script for around $10$ time steps and output the converged loss, such that one can compare the loss across different hyperparameters.
+
+(g) `PlotLoss.py` can be used to plot the loss function during the training so as to evaluating the accuracy of the VAN.
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
