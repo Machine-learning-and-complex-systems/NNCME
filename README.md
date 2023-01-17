@@ -46,6 +46,8 @@ To create a new `.py` file for your model, typically you only need to input the 
 
 (e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your model.
 
+(f) During training, the number of species will be printed every 50 epochs for each training time step. After training, one can plot the result using `Data.npz` in the `out` folder.
+
 ## Optional implementation:
 
 (a) Both the recurrent neural network (RNN) and the transformer can be chosen as the unit of the neural-network model, as an option args.net='rnn' or 'transformer'.
