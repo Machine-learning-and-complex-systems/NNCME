@@ -86,7 +86,7 @@ args.L=4 #The number of species
 args.M=int(80) #Upper limit on the count of species
 args.batch_size=1000 #Number of batch samples
 args.Tstep=100# Time step of iterating the chemical master equation
-args.delta_t=0.0005 #Time step length of iterating the chemical master equation
+args.delta_t=0.005 #Time step length of iterating the chemical master equation
 
 #More hyperparameters of the neural network (unnecessary changes)
 #Please refer to table I of the manuscript for the choice of the above hyperparameters if changes are required. 
