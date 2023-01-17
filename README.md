@@ -114,7 +114,7 @@ Examples of the methods are given in the main text. The representative examples 
 
 They separately demonstrate that our approach is applicable to systems with a multimodal distribution, with an intrinsic constraint of count conservation, with time-dependent parameters, and in high dimensions.
 
-Scripts `.sh` in the folder "Shell' are commands to reproduce the results in Fig. 2~5. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the Supplementary table II,III of the manuscript: All computations are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
+Scripts `.sh` in the folder "Shell' are commands to reproduce the results. Directly running these scripts several GPU hours. Expected run time for the examples are provided in the table I of the manuscript: All computations are performed with a single core GPU (~25% usage) of a Tesla-V100. In practice, one may run these commands with different hyperparameters in parallel on multiple GPUs.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
