@@ -44,7 +44,7 @@ To create a new `.py` file for your model, typically you only need to input the 
 
 (d) The default initial condition is the discrete delta distribution concentrated on the given number in the variable "initialD". Other types of distribution such as Poisson distribution can be added to the code if the users have the demand.
 
-(e) For hyperparameters such as dt, please use those in the Supplementary table II,III of the manuscript as a reference for your model.
+(e) For hyperparameters such as dt, please use those in the table I of the manuscript as a reference for your model.
 
 (f) During training, the number of species will be printed every 50 epochs for each training time step. After training, one can plot the result using `Data.npz` in the `out` folder.
 
@@ -58,9 +58,9 @@ To create a new `.py` file for your model, typically you only need to input the 
 
 (d) If the total species count obeys a conservation law, please set the variable "conservation=initialD.sum()" as the total initial count of all species.
 
-(e) One can use `main2.py` to generate samples from the same probability distribution at the last training step. (`main.py` use samples over the last $10$ training steps where the loss function already converges.)
+(e) One can use `main2.py` to generate samples from the same probability distribution at the last training step. (`main.py` use samples over the last 10 training steps where the loss function already converges.)
 
-(f) `ParameterSearch.py` has a for loop to scan hyperparameters and call our current main script in the for loops: each for loop just runs the main script for around $10$ time steps and output the converged loss, such that one can compare the loss across different hyperparameters.
+(f) `ParameterSearch.py` has a for loop to scan hyperparameters and call our current main script in the for loops: each for loop just runs the main script for around 10 time steps and output the converged loss, such that one can compare the loss across different hyperparameters.
 
 (g) `PlotLoss.py` can be used to plot the loss function during the training so as to evaluating the accuracy of the VAN.
 
@@ -89,7 +89,7 @@ args.Tstep=100# Time step of iterating the chemical master equation
 args.delta_t=0.0005 #Time step length of iterating the chemical master equation
 
 #More hyperparameters of the neural network (unnecessary changes)
-#Please refer to Supplementary table II,III of the manuscript for the choice of the above hyperparameters if changes are required. 
+#Please refer to table I of the manuscript for the choice of the above hyperparameters if changes are required. 
 #If no specification, the parameters will be the default in MasterEq.py and args.py
 ###Set hyperparameters end-------------------------------
 
