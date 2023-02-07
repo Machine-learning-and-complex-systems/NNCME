@@ -46,7 +46,7 @@ class cascade1_inverse:
         ReactionMatRight[0,0]=1
         for i in range(1,self.L): # decay
             ReactionMatRight[i,2*i]=1
-        print(ReactionMatLeft)
+        # print(ReactionMatLeft)
         # have checked (ReactionMatRight-ReactionMatLeft)
         IniDistri='delta'
         MConstrain=np.zeros(1,dtype=int)

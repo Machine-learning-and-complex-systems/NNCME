@@ -59,8 +59,7 @@ class ToggleSwitch:
         r=torch.zeros(8) #Reaction rates
         MConstrain=np.array([2,2,self.M,self.M], dtype=int) #Number constrain
         conservation=np.ones(1,dtype=int)
-    
-        print(MConstrain)
+
         sx=sy=50
         dx=dy=1
         by=bx=1e-4
@@ -74,9 +73,7 @@ class ToggleSwitch:
         r[5] = bx
         r[6] = uy
         r[7] = ux
-        # print(MConstrain)
-        # ddd
-        print(self.IniDistri)
+
         # Reaction matrix
         ReactionMatLeft=torch.as_tensor([(1,0,0,0,0,1,0,0),(0,1,0,0,1,0,0,0),(0,0,1,0,2,0,0,0),(0,0,0,1,0,2,0,0)]).to(self.device)#SpeciesXReactions
         ReactionMatRight=torch.as_tensor([(1,0,0,0,0,0,0,1),(0,1,0,0,0,0,1,0),(1,0,0,0,0,0,2,0),(0,1,0,0,0,0,0,2)]).to(self.device)#SpeciesXReactions

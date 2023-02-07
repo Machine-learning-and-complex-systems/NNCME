@@ -37,7 +37,7 @@ def Optimizer(net,args):
     return optimizer,params,nparams
 
                    
-def Test(model):      
+def Test2(model):      
     start_time2 = time.time()    
         
     if args.Model!='Epidemic':
@@ -195,9 +195,12 @@ def Test(model):
                     DistanceCheck=torch.nn.functional.kl_div(net.log_prob(sample),TP_t_normalize, None, None, 'sum')#function kl_div is not the same as wiki's explanation. 
                     ListDistanceCheck_Eucli.append(DistanceCheck_Eucli.detach().cpu().numpy())
                     ListDistanceCheck.append(DistanceCheck.detach().cpu().numpy())
-                    if step>int(args.max_step-10):
+                    
+                    if step==int(args.max_step):
                         with torch.no_grad():
-                            SampleT.append(np.array(sample.detach().cpu()))
+                            for _  in range(10):
+                                sample, x_hat = net.sample(args.batch_size)
+                                SampleT.append(np.array(sample.detach().cpu()))
                             
                     #print out:
                     if args.print_step and step % args.print_step == 0 and Tstep % int(args.print_step) == 0:
@@ -258,7 +261,7 @@ def Test(model):
                     fig.set_size_inches(8, 8)
                     plt.tight_layout()        
                     plt.savefig('{}_img/TimeStep{}.jpg'.format(args.out_filename, Tstep), dpi=300)
-                
+
                 Lossmean.append(Listloss_mean)
                 Lossstd.append(Listloss_std)
             SummaryLoss1.append(Loss1)      
@@ -276,6 +279,6 @@ def Test(model):
     SummaryListDynPartiFuncLog2=np.array(SummaryListDynPartiFuncLog2)
     SummaryLoss1=np.array(SummaryLoss1)
     SummaryLoss2=np.array(SummaryLoss2)
-    np.savez('{}_img/Data'.format(args.out_filename),SummaryListDynPartiFuncLog2,argsSave,SummaryListDynPartiFuncLog3,SummaryLoss1,SummaryLoss2,np.array(SampleSum),np.array(delta_TSum),Lossmean,Lossstd)     
+    np.savez('{}_img/Data'.format(args.out_filename),SummaryListDynPartiFuncLog2,argsSave,SummaryListDynPartiFuncLog3,SummaryLoss1,SummaryLoss2,np.array(SampleSum),np.array(delta_TSum),Lossmean,Lossstd)
     
     return SummaryLoss1, np.array(SampleSum)

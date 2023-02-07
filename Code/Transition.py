@@ -46,8 +46,8 @@ def TransitionState(sample,args,Tstep,step,net_new,ReactionMatLeft,V,cc,delta_T,
     SampleNeighbor1D=Sample1D.repeat(V.shape[1],1,1).permute(1,2,0)
     SampleNeighbor1D_Win=SampleNeighbor1D-V # States that transit into the sampled states by each of the reation
     UpBoundary=args.M
-    if args.conservation>1:
-        UpBoundary=args.conservation-1      
+    if args.conservation>1 and args.Sites==1:
+        UpBoundary=args.conservation-1 
     if args.MConstrain[0]>0:
         UpBoundary=torch.tensor(args.MConstrain, dtype=SampleNeighbor1D_Win.dtype).to(args.device) 
         UpBoundary=UpBoundary.view(-1,1).repeat(SampleNeighbor1D.shape[0],1,SampleNeighbor1D.shape[2]) 
@@ -141,9 +141,9 @@ def TransitionState(sample,args,Tstep,step,net_new,ReactionMatLeft,V,cc,delta_T,
                 Temp2[Temp2<=0]=args.epsilon
         else:   
             if Tstep==0:
-                Temp2=1+(torch.sum(torch.exp(LogP_t_other-LogP_t.repeat(cc.shape[0],1).t())*Propensity_in,1)-R)*args.delta_t/4 #
-                if step==0:
-                    print('First Tstep to have smaller delta_t to reduce loss.mean')
+                Temp2=1+(torch.sum(torch.exp(LogP_t_other-LogP_t.repeat(cc.shape[0],1).t())*Propensity_in,1)-R)*args.delta_t/10#/4 #
+                # if step==0:
+                #     print('First Tstep to have smaller delta_t to reduce loss.mean')
             else:
                 Temp2=1+(torch.sum(torch.exp(LogP_t_other-LogP_t.repeat(cc.shape[0],1).t())*Propensity_in,1)-R)*args.delta_t
             

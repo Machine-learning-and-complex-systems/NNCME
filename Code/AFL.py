@@ -53,7 +53,6 @@ class AFL:
         #MConstrain=np.zeros(1,dtype=int)
         conservation=np.ones(1,dtype=int)
     
-        print(MConstrain)
         #Para set 1:
         if self.Para==1:
             sigma_u =0.94
@@ -77,7 +76,7 @@ class AFL:
         r[2] = rho_u
         r[3] = rho_b
         r[4] = 1
-        print(self.IniDistri)
+
         # Reaction matrix
         ReactionMatLeft=torch.as_tensor([(0, 1,1,0,0), (0,1,0,0,1)]).to(self.device)#SpeciesXReactions
         ReactionMatRight=torch.as_tensor([(1, 0,1,0,0), (1,0,1,1,0)]).to(self.device)#SpeciesXReactions

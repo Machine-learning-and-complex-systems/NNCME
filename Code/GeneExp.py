@@ -50,7 +50,7 @@ class GeneExp:
         r[3] = 0.002 #yp  
         initialD=np.array([0,0]).reshape(1,self.L)#0.1#0.1 # the parameter for the initial Poisson distribution
         #self.IniDistri='poisson'
-        print(self.IniDistri)
+        print('IniDistri:',self.IniDistri)
         # Reaction matrix
         if self.order==1:
             ReactionMatLeft=torch.as_tensor([(0, 1,1,0), (0,0,0,1)]).to(self.device)#SpeciesXReactions

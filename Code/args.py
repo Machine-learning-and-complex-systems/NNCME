@@ -8,7 +8,7 @@ group.add_argument(
     '--Model',
     type=str,
     default='No',
-    #choices=['No','cascade1','ToggleSwitch','cascade2','cascade3','repressilator','homo1','MM','AFL','GeneExp1', 'GeneExp2', 'BirthDeath', 'Moran','Epidemic'],
+    #choices=['No','cascade1','ToggleSwitch','cascade2','cascade3','repressilator','homo1','MM','AFL','GeneExp1', 'GeneExp2', 'BirthDeath', 'Moran','Epidemic','EarlyLife2'],
     help='Models for master equation')
 
 group.add_argument(
@@ -48,7 +48,14 @@ group.add_argument(
     '--L',
     type=int,
     default=3,
-    help='number of sites on each edge of the lattice')
+    help='number of species')
+
+group.add_argument(
+    '--Sites',
+    type=int,
+    default=1,
+    help='number of sites for spatial-extended systems')
+
 group.add_argument(
     '--order',
     type=int,

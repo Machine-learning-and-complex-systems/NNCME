@@ -39,7 +39,7 @@ def get_ham_args_features():
     #ham_args = '{Model}_L{L}_c{c}_T{Tstep}_dt{delta_t}_lr{lr}_batch{batch_size}_sL{dlambdaL}_sR{dlambdaR}_ds{dlambda}'
     #ham_args = '{Model}_L{L}_M{M}_T{Tstep}_dt{delta_t}_lr{lr}_batch{batch_size}'
     #ham_args = '{Model}_L{L}_M{M}_T{Tstep}_dt{delta_t}_batch{batch_size}'
-    ham_args = '{Model}_M{M}_T{Tstep}_dt{delta_t}_batch{batch_size}'
+    ham_args = '{Model}_L{L}_S{Sites}_M{M}_T{Tstep}_dt{delta_t}_batch{batch_size}'
     ham_args = ham_args.format(**vars(args))
 
     if args.net == 'made':

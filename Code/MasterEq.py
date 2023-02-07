@@ -1,6 +1,7 @@
 from args import args
 import numpy as np
 from main import Test
+from main2 import Test2
 
 ###Add models----------------------------------
 from ToggleSwitch import ToggleSwitch
@@ -21,11 +22,12 @@ args.L=4#Species number
 args.M=int(80) #Upper limit of the molecule number: it is adjustable and can be indicated by doing a few Gillespie simulation. 
 args.batch_size=1000 #Number of batch samples
 args.Tstep=1000# Time step of iterating the chemical master equation
-args.delta_t=0.0005 #Time step length of iterating the chemical master equation, depending on the reaction rates
+args.delta_t=0.005 #Time step length of iterating the chemical master equation, depending on the reaction rates
+args.Para=1
 
 args.net ='rnn'
-args.max_stepAll=5000 #Maximum number of steps first time step (usually larger to ensure the accuracy)
-args.max_stepLater=100 #Maximum number of steps of later time steps
+args.max_stepAll=5000 # Number of epochs at the first time step (usually larger to ensure the accuracy)
+args.max_stepLater=100 # Number of epochs of later time steps
 args.net_depth=1 # including output layer and not input data layer
 args.net_width=32
 args.d_model=16# transformer
@@ -36,7 +38,7 @@ args.lr=0.001
 args.binary=False
 args.AdaptiveT=False
 args.AdaptiveTFold=5
-args.print_step=20
+args.print_step=1 # To save data every print_step
 args.saving_data_time_step=[0,1e2,5e2,2e3,1e4,2e4,5e4,1e5,1.5e5,2e5,2.5e5,3e5,3.5e5,4e5,5e5,6e5,7e5,8e5,9e5,1e6] #To save data at which time steps (give in a list)
 args.training_loss_print_step=[0,1,2,101,1001,2e3,1e4,1e5,2e5,3e5,4e5,5e5] #To print training loss at which time steps (give in a list)
 
@@ -51,31 +53,37 @@ args.dtype='float64'
 args.epsilon=1e-30#initial probability of zero species number
 args.lr_schedule=False#True
 
-###Add model command-------------------------------
-if args.Model=='ToggleSwitch':
-    model = ToggleSwitch(**vars(args))   
-if args.Model=='EarlyLife':
-    model = EarlyLife(**vars(args))   
-if args.Model=='Epidemic':
-    model = Epidemic(**vars(args))   
-if args.Model=='cascade1': 
-    model = cascade1(**vars(args)) 
-if args.Model=='cascade1_inverse':
-    model = cascade1_inverse(**vars(args)) 
-if args.Model=='cascade2':
-    model = cascade2(**vars(args))    
-if args.Model=='cascade3':
-    model = cascade3(**vars(args))    
-if args.Model=='BirthDeath':
-    model = BirthDeath(**vars(args))   
-if args.Model=='GeneExp':
-    model = GeneExp(**vars(args))   
-if args.Model=='AFL':
-    model = AFL(**vars(args)) 
+
+print(vars()[args.Model])
+model = vars()[args.Model](**vars(args)) 
+###Add model command-------------------------------  
+# if args.Model=='ToggleSwitch':
+#     model = ToggleSwitch(**vars(args))   
+# if args.Model=='EarlyLife':
+#     model = EarlyLife(**vars(args))    
+# if args.Model=='Epidemic':
+#     model = Epidemic(**vars(args))   
+# if args.Model=='cascade1': 
+#     model = cascade1(**vars(args)) 
+# if args.Model=='cascade1_inverse':
+#     model = cascade1_inverse(**vars(args)) 
+# if args.Model=='cascade2':
+#     model = cascade2(**vars(args))    
+# if args.Model=='cascade3':
+#     model = cascade3(**vars(args))    
+# if args.Model=='BirthDeath':
+#     model = BirthDeath(**vars(args))   
+# if args.Model=='GeneExp':
+#     model = GeneExp(**vars(args))   
+# if args.Model=='AFL':
+#     model = AFL(**vars(args)) 
     
 #Run model-----------------------------------------        
 if __name__ == '__main__':
-    Test(model)    
+    Loss, SampleSum = Test(model)
+    # Loss: the converged KL-divergence at the final epoch for every save time step
+    # SampleSum: the samples generated from the joint probability (size: SaveTimeStep × SampleNum × SpeciesNum)
+    # The save time steps depend on args.Tstep / args.print_step
     
     
     
