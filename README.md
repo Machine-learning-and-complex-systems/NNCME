@@ -1,5 +1,5 @@
 # NNCME
-(c) Lab of Machine Learning and Complex Systems (2022).
+(c) Lab of Machine Learning and Complex Systems (2023).
 All rights reserved. 
 
 A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://arxiv.org/abs/2210.01169)
