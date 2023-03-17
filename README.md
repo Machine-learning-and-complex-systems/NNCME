@@ -2,7 +2,8 @@
 (c) Lab of Machine Learning and Complex Systems (2023).
 All rights reserved. 
 
-A software package for the manuscript "Neural-network solutions to stochastic reaction networks" (https://www.nature.com/articles/s42256-023-00632-6, https://rdcu.be/c7MVp)
+A software package for the manuscript "Neural-network solutions to stochastic reaction networks" 
+(https://www.nature.com/articles/s42256-023-00632-6, https://rdcu.be/c7MVp)
 
 NNCME stands for Neural Network Chemical Master Equation. It tracks the time evolution of stochastic reaction networks by training the variational autoregressive neural network, which generates the time evolution of the joint probability distribution and the marginal statistics. This approach is applicable and adaptable to general stochastic reaction networks. 
 
