@@ -210,4 +210,4 @@ group.add_argument(
     default=[0,1,2,101,1001,2e3,1e4,1e5,2e5,3e5,4e5,5e5],
     help='To print training loss at which time steps (give in a list)')
 
-args = parser.parse_args()
+args = parser.parse_args(args=[])
