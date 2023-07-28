@@ -119,5 +119,5 @@ Scripts `.sh` in the folder "Shell' are commands to reproduce the results. Direc
 
 If you have any questions or need help to implement your model, feel free to contact us.
 
-Contact: Ying Tang, jamestang23@gmail.com; Jiayu Weng, 202011059131@mail.bnu.edu.cn
+Contact: Ying Tang, jamestang23@gmail.com; Jiayu Weng, yukiweng@mail.bnu.edu.cn
 
