@@ -7,9 +7,7 @@ A software package for the manuscript "Neural-network solutions to stochastic re
 
 NNCME stands for Neural Network Chemical Master Equation. It tracks the time evolution of stochastic reaction networks by training the variational autoregressive neural network, which generates the time evolution of the joint probability distribution and the marginal statistics. This approach is applicable and adaptable to general stochastic reaction networks. 
 
-A step-by-step guideline of implementing an example is on the Jupyter notebook: 
-
-`A Simple Template.ipynb` and `Detailed Version of Gene Expression.ipynb`. 
+To try running the existing program, please refer to `Code\RunGeneExp.ipynb`. To learn how to extend and implement new examples, please refer to `A Simple Template.ipynb` and `Detailed Version of Gene Expression.ipynb`. 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
