@@ -1,5 +1,5 @@
 # NNCME
-(c) Lab of Machine Learning and Complex Systems (2023).
+(c) Lab of Machine Learning and Stochastic Dynamics (2023).
 All rights reserved. 
 
 A software package for the manuscript "Neural-network solutions to stochastic reaction networks" 
