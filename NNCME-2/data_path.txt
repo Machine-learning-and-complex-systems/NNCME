@@ -1,0 +1,1 @@
+out/BirthDeath/BirthDeath_L1_S1_M30_T101_dt1.0_batch1000/(2) dm8_df16_ly2_he2_trans_NatGrad_lr0.5_epoch5_Losskl_Samplingdiffusive_kernel10_IniDistpoisson_Para1_bias_cg1/out_img
